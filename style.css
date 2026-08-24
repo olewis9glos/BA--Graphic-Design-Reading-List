@@ -250,8 +250,34 @@ a {
 
   padding-right:
     calc(var(--page-margin) + 12px);
+}
 
-  background: #D9D9D9;
+.resource-row:has(.resource-link.watch):hover {
+  background:
+    linear-gradient(
+      90deg,
+      var(--white) 0%,
+      var(--green) 100%
+    );
+}
+
+.resource-row:has(.resource-link.listen):hover {
+  background:
+    linear-gradient(
+      90deg,
+      var(--white) 0%,
+      var(--blue) 100%
+    );
+}
+
+.resource-row:has(.resource-link.read):hover {
+  background:
+    linear-gradient(
+      90deg,
+      var(--white) 0%,
+      var(--yellow) 100%
+    );
+}
 }
 
 .resource-thumbnail {
