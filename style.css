@@ -252,9 +252,8 @@ a {
   background:
     linear-gradient(
       90deg,
-      var(--white) 0%,
-      var(--white) 25%,
-      var(--green) 100%
+      var(--green) 0%,
+      var(--white) 75%
     );
 }
 
@@ -262,9 +261,8 @@ a {
   background:
     linear-gradient(
       90deg,
-      var(--white) 0%,
-      var(--white) 25%,
-      var(--blue) 100%
+      var(--blue) 0%,
+      var(--white) 75%
     );
 }
 
@@ -272,12 +270,10 @@ a {
   background:
     linear-gradient(
       90deg,
-      var(--white) 0%,
-      var(--white) 25%,
-      var(--yellow) 100%
+      var(--yellow) 0%,
+      var(--white) 75%
     );
 }
-
 
 /* THUMBNAILS */
 
