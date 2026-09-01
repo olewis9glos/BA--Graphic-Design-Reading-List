@@ -76,8 +76,7 @@ a {
   background: var(--black);
   color: var(--white);
 
-  border-bottom:
-    2px solid var(--white);
+  border-bottom: 2px solid var(--white);
 }
 
 .top-bar-inner {
@@ -109,9 +108,7 @@ a {
 
   margin: 0;
 
-  font-size:
-    clamp(50px, 5vw, 100px);
-
+  font-size: clamp(50px, 5vw, 100px);
   font-weight: 700;
   line-height: 0.9;
 
@@ -124,9 +121,7 @@ a {
     0
     55px;
 
-  font-size:
-    clamp(24px, 4vw, 58px);
-
+  font-size: clamp(24px, 4vw, 58px);
   font-weight: 700;
   line-height: 1;
 
@@ -141,9 +136,7 @@ a {
   width: 100%;
   max-width: 1500px;
 
-  font-size:
-    clamp(24px, 2.6vw, 42px);
-
+  font-size: clamp(24px, 2.6vw, 42px);
   line-height: 1.1;
 }
 
@@ -166,13 +159,11 @@ a {
 
   display: flex;
   align-items: center;
-
-  gap: 12px;
   flex-wrap: wrap;
 
-  font-size:
-    clamp(22px, 3.2vw, 48px);
+  gap: 12px;
 
+  font-size: clamp(22px, 3.2vw, 48px);
   font-weight: 700;
 }
 
@@ -218,12 +209,14 @@ a {
 }
 
 .resource-row {
+  position: relative;
+
   display: grid;
 
   grid-template-columns:
     110px
-    minmax(230px, 1.15fr)
-    minmax(300px, 1.5fr)
+    minmax(0, 34vw)
+    minmax(260px, 1fr)
     140px;
 
   gap: 30px;
@@ -241,39 +234,71 @@ a {
   border-bottom:
     1px solid var(--black);
 
+  overflow: hidden;
+}
+
+
+/* HOVER GRADIENT */
+
+.resource-row::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  z-index: 0;
+
+  opacity: 0;
+
+  pointer-events: none;
+
   transition:
-    background 300ms ease;
+    opacity 250ms ease;
 }
 
+.resource-row > * {
+  position: relative;
+  z-index: 1;
+}
 
-/* HOVER COLOURS */
-
-.watch-row:hover {
+.watch-row::before {
   background:
     linear-gradient(
-      90deg,
+      to right,
       var(--green) 0%,
-      var(--white) 75%
+      var(--green) 8%,
+      var(--white) 72%
     );
 }
 
-.listen-row:hover {
+.listen-row::before {
   background:
     linear-gradient(
-      90deg,
+      to right,
       var(--blue) 0%,
-      var(--white) 75%
+      var(--blue) 8%,
+      var(--white) 72%
     );
 }
 
-.read-row:hover {
+.read-row::before {
   background:
     linear-gradient(
-      90deg,
+      to right,
       var(--yellow) 0%,
-      var(--white) 75%
+      var(--yellow) 8%,
+      var(--white) 72%
     );
 }
+
+@media (hover: hover) and (pointer: fine) {
+
+  .resource-row:hover::before {
+    opacity: 1;
+  }
+
+}
+
 
 /* THUMBNAILS */
 
@@ -319,22 +344,26 @@ a {
 /* RESOURCE TEXT */
 
 .resource-title {
+  width: 100%;
   min-width: 0;
 }
 
 .resource-title h2 {
+  width: 100%;
+
   margin:
     0
     0
     5px;
 
-  font-size:
-    clamp(26px, 2.5vw, 42px);
-
+  font-size: clamp(26px, 2.5vw, 42px);
   font-weight: 700;
   line-height: 0.95;
 
   letter-spacing: normal;
+
+  overflow-wrap: normal;
+  word-break: normal;
 }
 
 .creator {
@@ -345,6 +374,7 @@ a {
 }
 
 .resource-info {
+  width: 100%;
   min-width: 0;
   max-width: 48ch;
 }
@@ -364,7 +394,6 @@ a {
 
   font-size: 15px;
   line-height: 1.25;
-
   font-weight: 700;
 }
 
@@ -412,11 +441,15 @@ a {
   color: var(--black);
 }
 
-.resource-link:hover {
-  transform: scale(1.06);
+@media (hover: hover) and (pointer: fine) {
 
-  background: var(--black);
-  color: var(--white);
+  .resource-link:hover {
+    transform: scale(1.06);
+
+    background: var(--black);
+    color: var(--white);
+  }
+
 }
 
 .resource-link:focus-visible {
@@ -446,9 +479,7 @@ a {
 .closing p {
   margin: 0;
 
-  font-size:
-    clamp(30px, 15vw, 100px);
-
+  font-size: clamp(30px, 15vw, 100px);
   line-height: 0.9;
   font-weight: 700;
 
@@ -486,7 +517,7 @@ a {
   .resource-row {
     grid-template-columns:
       100px
-      1fr
+      minmax(0, 1fr)
       140px;
 
     gap: 22px;
@@ -502,6 +533,7 @@ a {
 
   .text-symbol {
     width: 100px;
+
     font-size: 58px;
   }
 
@@ -529,6 +561,7 @@ a {
   .top-bar-inner {
     font-size: 13px;
   }
+
 
   .hero {
     padding:
@@ -562,6 +595,7 @@ a {
     font-size: 24px;
   }
 
+
   .actions {
     margin-top: 45px;
 
@@ -577,6 +611,7 @@ a {
       7px;
   }
 
+
   .resources {
     padding-bottom: 60px;
   }
@@ -584,7 +619,7 @@ a {
   .resource-row {
     grid-template-columns:
       85px
-      1fr;
+      minmax(0, 1fr);
 
     gap:
       18px
@@ -619,6 +654,7 @@ a {
 
   .resource-title h2 {
     font-size: 29px;
+    line-height: 0.98;
   }
 
   .resource-info {
@@ -639,6 +675,7 @@ a {
     width: 140px;
   }
 
+
   .closing {
     min-height: 30vh;
   }
@@ -647,6 +684,7 @@ a {
     font-size:
       clamp(42px, 13vw, 80px);
   }
+
 
   .site-footer {
     flex-direction: column;
