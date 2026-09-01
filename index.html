@@ -10,11 +10,9 @@
     content="Reading, viewing and listening resources for BA Graphic Design at the University of Gloucestershire."
   >
 
-<h1>
-  An Introduction<br>
-  to Graphic Design
-</h1>
-<link rel="icon" type="image/png" href="images/favicon.png">
+  <title>An Introduction to Graphic Design</title>
+
+  <link rel="icon" type="image/png" href="images/favicon.png">
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -36,7 +34,10 @@
 
     <section class="hero">
 
-      <h1>An Introduction to Graphic Design</h1>
+      <h1>
+        An Introduction<br>
+        to Graphic Design
+      </h1>
 
       <p class="hero-subtitle">
         Reading
@@ -567,7 +568,7 @@
 
         <article class="resource-row read-row">
 
-          <div class="text-symbol" aria-hidden="true">🤲</div>
+          <div class="text-symbol" aria-hidden="true">📬</div>
 
           <div class="resource-title">
             <h2>The Medium is the Massage</h2>
@@ -627,7 +628,7 @@
 
         <article class="resource-row read-row">
 
-          <div class="text-symbol" aria-hidden="true">⛛</div>
+          <div class="text-symbol" aria-hidden="true">📘</div>
 
           <div class="resource-title">
             <h2>A New Program for Graphic Design</h2>
@@ -699,7 +700,7 @@
 
         <article class="resource-row read-row">
 
-          <div class="text-symbol" aria-hidden="true">🛍️</div>
+          <div class="text-symbol" aria-hidden="true">👜</div>
 
           <div class="resource-title">
             <h2>The Carrier Bag Theory of Fiction</h2>
@@ -758,7 +759,7 @@
 
         <article class="resource-row read-row">
 
-          <div class="text-symbol" aria-hidden="true">🎓</div>
+          <div class="text-symbol" aria-hidden="true">🗣️</div>
 
           <div class="resource-title">
             <h2>Teaching to Transgress</h2>
@@ -787,7 +788,7 @@
 
         <article class="resource-row read-row">
 
-          <div class="text-symbol" aria-hidden="true">🦾</div>
+          <div class="text-symbol" aria-hidden="true">⚡</div>
 
           <div class="resource-title">
             <h2>Glitch Feminism</h2>
@@ -846,12 +847,10 @@
       const resources = Array.from(resourceList.children);
 
       for (let i = resources.length - 1; i > 0; i--) {
-
         const j = Math.floor(Math.random() * (i + 1));
 
         [resources[i], resources[j]] =
         [resources[j], resources[i]];
-
       }
 
       resources.forEach(function (resource) {
