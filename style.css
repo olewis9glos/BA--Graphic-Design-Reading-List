@@ -1,4 +1,6 @@
-/* RESET */
+/* =========================================================
+   RESET
+   ========================================================= */
 
 *,
 *::before,
@@ -26,6 +28,8 @@ body {
 
   font-kerning: normal;
   font-feature-settings: "kern" 1;
+
+  overflow-x: hidden;
 }
 
 img {
@@ -45,7 +49,9 @@ a {
 }
 
 
-/* VARIABLES */
+/* =========================================================
+   VARIABLES
+   ========================================================= */
 
 :root {
   --black: #1A1A1A;
@@ -56,18 +62,16 @@ a {
   --red: #EF5147;
   --yellow: #FFE500;
 
-  --page-margin: clamp(20px, 3vw, 52px);
+  --page-margin: clamp(12px, 3vw, 52px);
 
-  --hero-size: clamp(46px, 7vw, 108px);
-  --subtitle-size: clamp(22px, 3.8vw, 58px);
-  --intro-size: clamp(22px, 2.5vw, 42px);
-  --action-size: clamp(22px, 3vw, 48px);
+  --intro-text-size: clamp(21px, 2.55vw, 42px);
   --resource-title-size: clamp(26px, 2.35vw, 42px);
-  --closing-size: clamp(44px, 8vw, 100px);
 }
 
 
-/* HEADER */
+/* =========================================================
+   HEADER
+   ========================================================= */
 
 .top-bar {
   position: sticky;
@@ -91,61 +95,86 @@ a {
   justify-content: space-between;
   align-items: center;
 
-  gap: 30px;
+  gap: 20px;
 
-  font-size: clamp(13px, 1.1vw, 16px);
+  font-size: clamp(11px, 1.1vw, 16px);
   font-weight: 700;
+  line-height: 1.1;
+}
+
+.top-bar-inner span:last-child {
+  text-align: right;
 }
 
 
-/* INTRO */
+/* =========================================================
+   HERO / INTRO
+   ========================================================= */
 
 .hero {
   padding:
-    clamp(40px, 4vw, 55px)
+    clamp(32px, 4vw, 58px)
     var(--page-margin)
-    clamp(60px, 6vw, 80px);
+    clamp(55px, 6vw, 90px);
 
   background: var(--black);
   color: var(--white);
 }
 
+
+/* MAIN TITLE
+
+   This deliberately scales directly with viewport width
+   so it always remains on one line.
+*/
+
 .hero h1 {
   width: 100%;
-  max-width: 1500px;
 
   margin: 0;
 
-  font-size: var(--hero-size);
+  font-size: clamp(14px, 4.9vw, 100px);
   font-weight: 700;
-  line-height: 0.9;
+  line-height: 0.88;
 
-  letter-spacing: normal;
+  letter-spacing: -0.04em;
+
+  white-space: nowrap;
 }
+
+
+/* READING / VIEWING / LISTENING */
 
 .hero-subtitle {
   margin:
-    clamp(32px, 4vw, 45px)
+    clamp(30px, 4vw, 52px)
     0
-    clamp(40px, 5vw, 55px);
+    clamp(38px, 5vw, 62px);
 
-  font-size: var(--subtitle-size);
+  font-size: clamp(21px, 3.7vw, 58px);
   font-weight: 700;
-  line-height: 1;
+  line-height: 0.95;
 
-  white-space: normal;
+  letter-spacing: -0.025em;
 }
 
 .hero-subtitle span {
-  margin: 0 0.15em;
+  margin:
+    0
+    0.15em;
 }
+
+
+/* INTRODUCTORY COPY */
 
 .introduction-text {
   width: 100%;
   max-width: 1500px;
 
-  font-size: var(--intro-size);
-  line-height: 1.1;
+  font-size: var(--intro-text-size);
+  line-height: 1.08;
+
+  letter-spacing: -0.015em;
 }
 
 .introduction-text p {
@@ -160,24 +189,27 @@ a {
 }
 
 
-/* KEY */
+/* =========================================================
+   WATCH / LISTEN / READ KEY
+   ========================================================= */
 
 .actions {
-  margin-top: clamp(45px, 5vw, 60px);
+  margin-top: clamp(42px, 5vw, 70px);
 
   display: flex;
   align-items: center;
   flex-wrap: wrap;
 
-  gap: clamp(7px, 1vw, 12px);
+  gap: clamp(6px, 0.8vw, 12px);
 
-  font-size: var(--action-size);
+  font-size: clamp(20px, 3vw, 48px);
   font-weight: 700;
+  line-height: 1;
 }
 
 .actions span:not(.action-arrow) {
   padding:
-    0.14em
+    0.13em
     0.22em;
 
   color: var(--black);
@@ -200,13 +232,15 @@ a {
 }
 
 
-/* RESOURCE LIST */
+/* =========================================================
+   RESOURCE SECTION
+   ========================================================= */
 
 .resources {
   padding:
     0
     0
-    clamp(60px, 7vw, 90px);
+    clamp(60px, 7vw, 100px);
 
   background: var(--white);
   color: var(--black);
@@ -216,6 +250,11 @@ a {
   width: 100%;
 }
 
+
+/* =========================================================
+   RESOURCE ROW
+   ========================================================= */
+
 .resource-row {
   position: relative;
 
@@ -223,15 +262,15 @@ a {
 
   grid-template-columns:
     110px
-    minmax(220px, 0.85fr)
-    minmax(260px, 1.15fr)
+    minmax(200px, 0.9fr)
+    minmax(260px, 1.1fr)
     140px;
 
-  gap: clamp(20px, 2vw, 30px);
+  gap: clamp(18px, 2vw, 30px);
+
   align-items: center;
 
   width: 100%;
-
   min-height: 160px;
 
   padding:
@@ -247,7 +286,9 @@ a {
 }
 
 
-/* HOVER GRADIENT */
+/* =========================================================
+   ROW HOVER
+   ========================================================= */
 
 .resource-row::before {
   content: "";
@@ -309,7 +350,9 @@ a {
 }
 
 
-/* THUMBNAILS */
+/* =========================================================
+   THUMBNAILS
+   ========================================================= */
 
 .resource-thumbnail {
   width: 110px;
@@ -326,7 +369,9 @@ a {
 }
 
 
-/* EMOJIS */
+/* =========================================================
+   TEXT SYMBOLS / EMOJIS
+   ========================================================= */
 
 .text-symbol {
   width: 110px;
@@ -342,7 +387,7 @@ a {
     "Noto Color Emoji",
     sans-serif;
 
-  font-size: clamp(50px, 4vw, 62px);
+  font-size: clamp(48px, 4vw, 62px);
   font-weight: 400;
   line-height: 1;
 
@@ -350,7 +395,9 @@ a {
 }
 
 
-/* RESOURCE TEXT */
+/* =========================================================
+   RESOURCE TITLE
+   ========================================================= */
 
 .resource-title {
   width: 100%;
@@ -369,7 +416,7 @@ a {
   font-weight: 700;
   line-height: 0.95;
 
-  letter-spacing: normal;
+  letter-spacing: -0.025em;
 
   overflow-wrap: normal;
   word-break: normal;
@@ -378,13 +425,20 @@ a {
 .creator {
   margin: 0;
 
-  font-size: clamp(14px, 1vw, 15px);
+  font-size: clamp(13px, 1vw, 15px);
   font-weight: 700;
+  line-height: 1.2;
 }
+
+
+/* =========================================================
+   RESOURCE DESCRIPTION
+   ========================================================= */
 
 .resource-info {
   width: 100%;
   min-width: 0;
+
   max-width: 48ch;
 }
 
@@ -401,13 +455,15 @@ a {
     0
     0;
 
-  font-size: clamp(14px, 1vw, 15px);
+  font-size: clamp(13px, 1vw, 15px);
   line-height: 1.25;
   font-weight: 700;
 }
 
 
-/* RESOURCE LINKS */
+/* =========================================================
+   RESOURCE BUTTONS
+   ========================================================= */
 
 .resource-link {
   display: inline-flex;
@@ -423,6 +479,7 @@ a {
 
   font-size: 18px;
   font-weight: 700;
+  line-height: 1;
 
   text-decoration: none;
   white-space: nowrap;
@@ -469,13 +526,15 @@ a {
 }
 
 
-/* CLOSING */
+/* =========================================================
+   CLOSING
+   ========================================================= */
 
 .closing {
   min-height: 30vh;
 
   padding:
-    clamp(55px, 6vw, 70px)
+    clamp(55px, 6vw, 80px)
     var(--page-margin);
 
   background: var(--black);
@@ -490,15 +549,17 @@ a {
 
   margin: 0;
 
-  font-size: var(--closing-size);
-  line-height: 0.9;
+  font-size: clamp(42px, 8vw, 110px);
+  line-height: 0.88;
   font-weight: 700;
 
-  letter-spacing: normal;
+  letter-spacing: -0.04em;
 }
 
 
-/* FOOTER */
+/* =========================================================
+   FOOTER
+   ========================================================= */
 
 .site-footer {
   padding:
@@ -507,21 +568,29 @@ a {
 
   display: flex;
   justify-content: space-between;
+  align-items: center;
 
-  gap: 30px;
+  gap: 20px;
 
   background: var(--black);
   color: var(--white);
 
-  font-size: clamp(12px, 1vw, 14px);
+  font-size: clamp(11px, 1vw, 14px);
   font-weight: 700;
+  line-height: 1.1;
 
   border-top:
     2px solid var(--white);
 }
 
+.site-footer span:last-child {
+  text-align: right;
+}
 
-/* TABLET */
+
+/* =========================================================
+   TABLET
+   ========================================================= */
 
 @media (max-width: 1000px) {
 
@@ -532,7 +601,7 @@ a {
       140px;
 
     gap:
-      20px
+      18px
       22px;
 
     align-items: center;
@@ -550,13 +619,15 @@ a {
   .text-symbol {
     width: 100px;
     height: 88px;
+
+    font-size: 56px;
   }
 
   .resource-info {
     grid-column:
       2 / 3;
 
-    padding-top: 5px;
+    padding-top: 3px;
   }
 
   .resource-link {
@@ -569,37 +640,34 @@ a {
 }
 
 
-/* MOBILE */
+/* =========================================================
+   MOBILE
+   ========================================================= */
 
 @media (max-width: 700px) {
 
-  :root {
-    --page-margin: 20px;
+  .hero {
+    padding-top: 32px;
   }
 
 
-  .top-bar-inner {
-    gap: 15px;
-  }
-
-
-  .hero-subtitle span {
-    margin:
-      0
-      0.08em;
+  .hero-subtitle {
+    line-height: 1;
   }
 
 
   .resource-row {
     grid-template-columns:
-      85px
+      82px
       minmax(0, 1fr);
 
     gap:
-      18px
-      20px;
+      17px
+      19px;
 
     align-items: start;
+
+    min-height: 0;
 
     padding:
       22px
@@ -607,19 +675,19 @@ a {
   }
 
   .resource-thumbnail {
-    width: 85px;
+    width: 82px;
   }
 
   .resource-thumbnail img {
-    width: 85px;
-    height: 75px;
+    width: 82px;
+    height: 73px;
   }
 
   .text-symbol {
-    width: 85px;
-    height: 75px;
+    width: 82px;
+    height: 73px;
 
-    font-size: 50px;
+    font-size: 49px;
   }
 
   .resource-title {
@@ -630,7 +698,9 @@ a {
     grid-column:
       1 / 3;
 
-    padding-top: 4px;
+    padding-top: 3px;
+
+    max-width: none;
   }
 
   .resource-link {
@@ -641,56 +711,85 @@ a {
 
     justify-self: start;
 
-    width: 140px;
-  }
-
-
-  .site-footer {
-    flex-direction: column;
-
-    gap: 3px;
+    width: auto;
+    min-width: 132px;
   }
 
 }
 
 
-/* VERY SMALL SCREENS */
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
 
 @media (max-width: 430px) {
 
-  :root {
-    --hero-size: clamp(42px, 13vw, 56px);
-    --intro-size: clamp(21px, 6vw, 25px);
-    --resource-title-size: clamp(25px, 7vw, 30px);
+  .top-bar-inner {
+    gap: 10px;
   }
 
-  .top-bar-inner {
-    font-size: 12px;
+
+  .hero-subtitle {
+    font-size: clamp(18px, 5.8vw, 25px);
   }
+
+
+  .introduction-text {
+    font-size: clamp(20px, 6.3vw, 25px);
+  }
+
+
+  .actions {
+    font-size: clamp(19px, 6vw, 25px);
+  }
+
 
   .resource-row {
     grid-template-columns:
-      72px
+      68px
       minmax(0, 1fr);
 
     gap:
-      16px
-      17px;
+      15px
+      16px;
   }
 
-  .resource-thumbnail,
-  .text-symbol {
-    width: 72px;
+  .resource-thumbnail {
+    width: 68px;
   }
 
-  .resource-thumbnail img,
-  .text-symbol {
-    width: 72px;
-    height: 66px;
+  .resource-thumbnail img {
+    width: 68px;
+    height: 62px;
   }
 
   .text-symbol {
-    font-size: 44px;
+    width: 68px;
+    height: 62px;
+
+    font-size: 41px;
+  }
+
+
+  .resource-title h2 {
+    font-size: clamp(24px, 7vw, 29px);
+  }
+
+
+  .closing p {
+    font-size: clamp(40px, 13vw, 65px);
+  }
+
+
+  .site-footer {
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 3px;
+  }
+
+  .site-footer span:last-child {
+    text-align: left;
   }
 
 }
